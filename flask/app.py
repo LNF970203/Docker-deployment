@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify
 import logging
+import time
 
 from Utils import response_utils as rutils
 
@@ -24,6 +25,25 @@ def get_name():
 
         if request_name:
             message = "Hi, I am Lachin"
+            return jsonify(rutils.success_response({"message": message}))
+    else:
+        message = "Invalid HTTP method"
+        error_info = {"errorCode": None, "message": message, "suggestions": None}
+        return jsonify(rutils.failuer_response([error_info]))
+    
+
+@app.route("/check-time", methods=["POST"])   
+def check_time():
+    if request.method == "POST":
+        data = request.json
+        params = data["body"]
+        request_name = params["name"]
+
+        if request_name:
+            print("Sleep Starts")
+            time.sleep(45)
+            print("Sleep finishes")
+            message = "TImeout check successful!"
             return jsonify(rutils.success_response({"message": message}))
     else:
         message = "Invalid HTTP method"

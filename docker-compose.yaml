@@ -1,6 +1,6 @@
 version: "3.8"
 services:
-  flask-wsgi-backend:
+  flask-wsgi-timed-backend:
     build: ./flask
     container_name: wsgi_alpine_container
     ports:
