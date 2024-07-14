@@ -2,7 +2,7 @@ version: "3.8"
 services:
   backend:
     build: ./flask
-    container_name: deployment_test
+    container_name: aws_deployment
     ports:
       - 5000:5000
     volumes:

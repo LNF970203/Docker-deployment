@@ -1,4 +1,4 @@
-FROM python:3.12.3-bookworm
+FROM python:3.12.4-alpine
 
 WORKDIR /flask
 
@@ -10,4 +10,4 @@ COPY . .
 
 EXPOSE 5000
 
-CMD [ "gunicorn", "--bind" , "0.0.0.0:5000","wsgi:app"]
+CMD [ "python", "app.py"]
