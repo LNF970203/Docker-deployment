@@ -16,7 +16,7 @@ def create_payload():
     return payload_structure
     
 
-def get_features(url: str = config.HOSTED_IP):
+def get_features(url: str = config.HOSTED_TIMEOUT_IP):
     """
     send a post REST api request to flask backend
     """
